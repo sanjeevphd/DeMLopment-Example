@@ -1,0 +1,4 @@
+__pypackages__/
+*.pyc
+*.swp
+.DS_STORE
