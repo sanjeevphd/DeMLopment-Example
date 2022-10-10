@@ -2,3 +2,7 @@ __pypackages__/
 *.pyc
 *.swp
 .DS_STORE
+dist/
+dataset/
+.pdm.toml
+artifacts/

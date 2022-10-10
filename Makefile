@@ -23,16 +23,46 @@ remote_image = ${image_name}:${image_tag}
 # Host volume to mount
 host_volume ?= ${PWD}
 
+# Name for the Docker container
+container_name = written_text
+
 # Note: delete the --rm option, if you wish to persist the container upon exit.
 # Ex. may be to call `docker commit` to save the container as a new image.
 ## Run the JupyterLab Docker container. Use host_volume to specify local folder.
 ## (Ex. make docker-run host_volume=/home/user/work)
 docker-run:
-	docker run -it --init --rm -p 8888:8888 -v "${host_volume}:/root/work" ${local_image}
+	docker run -it --init -p 8888:8888 -v "${host_volume}:/root/work" --name ${container_name} ${local_image}
+
+## Start the previously stopped container
+docker-start:
+	docker container start ${container_name}
+
+## Connect to the running instance of the Docker container from the command line
+docker-exec:
+	docker exec -it ${container_name} /bin/bash
 
 ## Push the latest commits to remote GitHub repo (assumed to be setup).
 git-push:
 	git push -u origin main
+
+test_folder = tests
+## Run tests
+pytest:
+	pdm run pytest ${test_folder}
+
+py_dirs = src scripts tests web_app
+
+## Automatic code formatting with Black
+black:
+	pdm run black ${py_dirs}
+
+## Check code style with Flake8
+flake:
+	pdm run flake8
+
+## Format and Style code in one-step
+lint: black flake
+
 
 #################################################################################
 # Self Documenting Commands                                                     #

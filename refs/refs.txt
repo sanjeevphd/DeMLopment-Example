@@ -1,0 +1,5 @@
+Links
+=====
+
+- EMNIST dataset webpage - https://www.westernsydney.edu.au/icns/reproducible_research/publication_support_materials/emnist
+- Docs for torchvision.datasets.EMNIST - https://pytorch.org/vision/stable/generated/torchvision.datasets.EMNIST.html#torchvision.datasets.EMNIST
