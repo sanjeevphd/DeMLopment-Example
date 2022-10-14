@@ -45,12 +45,21 @@ docker-exec:
 git-push:
 	git push -u origin main
 
+serve_container = tserve
+## Serve the model using TorchServe Docker Container
+serve:
+	docker run -it --name $(serve_container) -p 8080:8080 -p 8081:8081 -p 8082:8082 -p 7070:7070 -p 7071:7071 -v ${PWD}/artifacts:/home/model-server/model-store -v ${PWD}/src:/home/model-server/src -v ${PWD}/torchserve:/home/model-server/torchserve -v ${PWD}/logs:/home/model-server/logs pytorch/torchserve
+
+## Access the running instance of the TorchServe Image
+serve-exec:
+	docker exec -it ${serve_container} /bin/bash
+
 test_folder = tests
 ## Run tests
 pytest:
 	pdm run pytest ${test_folder}
 
-py_dirs = src scripts tests web_app
+py_dirs = src scripts tests web_app torchserve
 
 ## Automatic code formatting with Black
 black:
@@ -58,7 +67,7 @@ black:
 
 ## Check code style with Flake8
 flake:
-	pdm run flake8
+	pdm run flake8 ${py_dirs}
 
 ## Format and Style code in one-step
 lint: black flake
