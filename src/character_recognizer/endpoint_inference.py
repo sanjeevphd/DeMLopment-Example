@@ -12,7 +12,7 @@ INFERENCE_URL = "http://localhost:8080/predictions/mnist"
 TEST_IMAGES_DIR = Path(
     "/Users/sanjeev/Career/MLinProduction/my_projects/handwritten_text_recognizer_EN/dataset/MNIST/sample_images"
 )
-NB_IMAGES = 10
+NB_IMAGES = 50
 
 targets = []  # the true labels
 predictions = []  # predicted labels

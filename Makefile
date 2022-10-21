@@ -54,6 +54,10 @@ serve:
 serve-exec:
 	docker exec -it ${serve_container} /bin/bash
 
+## Create model archive file (do this only after accessing the Torchserve container)
+mar:
+	torch-model-archiver --model-name mnist --version 1.0 --model-file src/character_recognizer/mnist.py --serialized-file artifacts/mnist_cnn.pt --export-path /home/model-server/model-store --handler torchserve/mnist_handler.py
+
 test_folder = tests
 ## Run tests
 pytest:

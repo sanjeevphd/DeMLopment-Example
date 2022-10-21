@@ -62,13 +62,17 @@ There are several great resources out there for literally anything you want to d
    - project scaffolding, code formatting and styling, version control, unifying steps with make, Docker for reproducibility and portability.
 
 
-#. Monitoring
+#. Serving and Monitoring
+
+   Framework for serving, metrics for monitoring - system, model, data.
 
 
-#. Model Deployment
+#. Model Testing and Deployment
+
+   Testing includes load (endpoint) testing, A/B testing, etc. Strategies for deployment and triggers for retraining.
 
 
-#. Model Training
+#. Model (re)Training
 
 
 #. Data Management

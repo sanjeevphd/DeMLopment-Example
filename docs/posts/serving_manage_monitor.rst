@@ -198,6 +198,30 @@ The default metrics available are::
 
 Next steps - setup `Prometheus <https://prometheus.io/docs/prometheus/latest/getting_started/>`_ for storing time-series logs of the metrics and possibly use `Grafana <https://prometheus.io/docs/visualization/grafana/>`_ to setup dashboards and visualize graphs.
 
+Below are the metrics with a single worker on a Docker container after images in batches of 10, 10, 10, 50.
+
+        # HELP ts_inference_latency_microseconds Cumulative inference duration in microseconds
+        # TYPE ts_inference_latency_microseconds counter
+        ts_inference_latency_microseconds{uuid="9ed569e2-3b0a-4435-b63e-cfd5e57449f5",model_name="mnist",model_version="default",} 7485497.346000001
+        # HELP ts_inference_requests_total Total number of inference requests.
+        # TYPE ts_inference_requests_total counter
+        ts_inference_requests_total{uuid="9ed569e2-3b0a-4435-b63e-cfd5e57449f5",model_name="mnist",model_version="default",} 80.0
+        # HELP ts_queue_latency_microseconds Cumulative queue duration in microseconds
+        # TYPE ts_queue_latency_microseconds counter
+        ts_queue_latency_microseconds{uuid="9ed569e2-3b0a-4435-b63e-cfd5e57449f5",model_name="mnist",model_version="default",} 775792.99
+
+Below are the metrics with a four worker on a Docker container after images in batches of 10, 10, 10, 50.
+
+        # HELP ts_inference_latency_microseconds Cumulative inference duration in microseconds
+        # TYPE ts_inference_latency_microseconds counter
+        ts_inference_latency_microseconds{uuid="b7a0cfbf-eaf7-4615-b3af-6f0178fcdaf0",model_name="mnist",model_version="default",} 7065172.445999999
+        # HELP ts_inference_requests_total Total number of inference requests.
+        # TYPE ts_inference_requests_total counter
+        ts_inference_requests_total{uuid="b7a0cfbf-eaf7-4615-b3af-6f0178fcdaf0",model_name="mnist",model_version="default",} 80.0
+        # HELP ts_queue_latency_microseconds Cumulative queue duration in microseconds
+        # TYPE ts_queue_latency_microseconds counter
+        ts_queue_latency_microseconds{uuid="b7a0cfbf-eaf7-4615-b3af-6f0178fcdaf0",model_name="mnist",model_version="default",} 69264.58100000002
+
 References:
 -----------
 
@@ -205,4 +229,5 @@ References:
 - `Example MNIST inference <https://github.com/pytorch/serve/tree/master/examples/image_classifier/mnist>`_
 - `Management API docs <https://pytorch.org/serve/management_api.html>`_
 - `Metrics API docs <https://pytorch.org/serve/metrics_api.html>`_
+- `Pillow documentation <https://pillow.readthedocs.io/en/stable/handbook/tutorial.html>`_
 
