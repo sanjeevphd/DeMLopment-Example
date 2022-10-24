@@ -10,7 +10,6 @@ dependencies = [
     "typer[all]>=0.6.1",
     "torchvision>=0.13.1",
     "pre-commit>=2.20.0",
-    "torchserve>=0.6.0",
     "torch-model-archiver>=0.6.0",
     "torch-workflow-archiver>=0.2.4",
 ]

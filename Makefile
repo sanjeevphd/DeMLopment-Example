@@ -50,13 +50,19 @@ serve_container = tserve
 serve:
 	docker run -it --name $(serve_container) -p 8080:8080 -p 8081:8081 -p 8082:8082 -p 7070:7070 -p 7071:7071 -v ${PWD}/artifacts:/home/model-server/model-store -v ${PWD}/src:/home/model-server/src -v ${PWD}/torchserve:/home/model-server/torchserve -v ${PWD}/logs:/home/model-server/logs pytorch/torchserve
 
+## Start a previously stopped tserve container
+serve-start:
+	docker container start ${serve_container}
+
 ## Access the running instance of the TorchServe Image
 serve-exec:
 	docker exec -it ${serve_container} /bin/bash
 
+model_name = mnist
+model_version = 1.0
 ## Create model archive file (do this only after accessing the Torchserve container)
 mar:
-	torch-model-archiver --model-name mnist --version 1.0 --model-file src/character_recognizer/mnist.py --serialized-file artifacts/mnist_cnn.pt --export-path /home/model-server/model-store --handler torchserve/mnist_handler.py
+	pdm run torch-model-archiver --model-name ${model_name} --version ${model_version} --model-file src/character_recognizer/mnist.py --serialized-file artifacts/mnist_cnn.pt --export-path artifacts --handler torchserve/mnist_handler.py
 
 test_folder = tests
 ## Run tests
@@ -76,6 +82,17 @@ flake:
 ## Format and Style code in one-step
 lint: black flake
 
+tserve_url = http://127.0.0.1
+models_port = 8081
+model_url = artifacts/mnist.mar
+num_workers = 2
+## Register model with a running instance of Torchserve
+register-model:
+	curl -X POST "${tserve_url}:${models_port}/models?initial_workers=${num_workers}&synchronous=false&url=${model_url}"
+
+## Build HTML docs using Sphinx
+html:
+	pdm run sphinx-build -b html . _build
 
 #################################################################################
 # Self Documenting Commands                                                     #

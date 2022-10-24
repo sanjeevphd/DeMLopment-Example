@@ -8,3 +8,4 @@ dataset/
 artifacts/
 .vscode/
 logs/
+_build/

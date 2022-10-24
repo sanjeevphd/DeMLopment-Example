@@ -1,5 +1,31 @@
+###############################################
 Serve, Manage and Monitor Model with TorchServe
-===============================================
+###############################################
+
+Usage
+=====
+
+Steps for creating the model archive locally
+--------------------------------------------
+
+.. note::
+
+   Make sure to `pip install torch-model-archiver` before proceeding.
+
+- Start the local development Docker container with all necessary dependencies installed by running `make docker-run`. If Docker complains that there is already an instance of the same name then run either 1. `make docker-start` or 2. `make docker-run container_name=another_dev_container` or 3. skip this step all together if the container is already running (`docker ps` to double check).
+- Connect to the terminal on the remote container by running `make docker-exec` or `make docker-exec container_name=what_was_used_above`
+- Create a Torchserve model archive file by running `make mar` (options here include `model_name` and `model_version`). Find the compiled `mar` file in the `artifacts` folder.
+
+
+Steps for running inference locally
+-----------------------------------
+
+- Start the Torchserve Docker container by running `make serve-run` or `make serve-start`, if the container was previously run.
+- Register the model by running `make register-model`. Options here include `tserve_url`, `models_port`, `num_workers` and `model_url`.
+
+
+A Short Introduction to Torchserve
+==================================
 
 Torchserve has Java dependencies, amongst others. To get up and running I will use the official Docker image to run TorchServe as a Docker container that can be accessed via the REST API.
 
@@ -223,7 +249,7 @@ Below are the metrics with a four worker on a Docker container after images in b
         ts_queue_latency_microseconds{uuid="b7a0cfbf-eaf7-4615-b3af-6f0178fcdaf0",model_name="mnist",model_version="default",} 69264.58100000002
 
 References:
------------
+===========
 
 - `TorchServe Docker docs <https://github.com/pytorch/serve/blob/master/docker/README.md>`_
 - `Example MNIST inference <https://github.com/pytorch/serve/tree/master/examples/image_classifier/mnist>`_
