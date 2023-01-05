@@ -6,11 +6,14 @@
 Welcome to Written Text Recognizer's documentation!
 ===================================================
 
+.. include:: ../README.rst
+
 .. toctree::
    :maxdepth: 1
    :caption: Contents:
 
    posts/deMLopment.rst
+   posts/endpoint.rst
    posts/serving_manage_monitor.rst
    development_notes.rst
 

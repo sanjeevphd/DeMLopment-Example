@@ -1,0 +1,6 @@
+pre-commit>=2.20.0
+torch>=1.12.1
+torch-model-archiver>=0.6.0
+torch-workflow-archiver>=0.2.4
+torchvision>=0.13.1
+typer[all]>=0.6.1

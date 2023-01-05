@@ -94,6 +94,21 @@ register-model:
 html:
 	pdm run sphinx-build -b html . _build
 
+venv:
+	python -m venv venv
+
+SHELL := /bin/bash
+pip:
+	source venv/bin/activate && \
+	python -m pip install --upgrade pip setuptools wheel && \
+	python -m pip install -e . && \
+	pre-commit install && \
+	pre-commit autoupdate && \
+	pre-commit run --all-files
+
+## Create a virtual environment and install everything needed to run locally
+venv_pip: venv pip
+
 #################################################################################
 # Self Documenting Commands                                                     #
 #################################################################################
