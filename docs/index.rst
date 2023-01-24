@@ -8,6 +8,8 @@ Welcome to Written Text Recognizer's documentation!
 
 .. include:: ../README.rst
 
+----
+
 .. toctree::
    :maxdepth: 1
    :caption: Contents:

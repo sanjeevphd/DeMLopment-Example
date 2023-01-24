@@ -2,6 +2,11 @@
 Serve, Manage and Monitor Model with TorchServe
 ###############################################
 
+.. note::
+
+   - This is an active project and very much a work in progress, so I expect things to change often.
+   - The documents are raw, unedited, and weakly formatted. Please excuse any typos, etc. 
+
 Usage
 =====
 

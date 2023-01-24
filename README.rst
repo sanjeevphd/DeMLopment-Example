@@ -1,6 +1,3 @@
-##############################
-Machine Learning in Production
-##############################
 
 An example of a full stack, production grade, machine learning engineering.
 
@@ -22,6 +19,11 @@ Approach/Methodology
 - agile mindset - small changes, rapid iterations, steady progress
 - cloud-ready local development
 - automate the automatable
+
+.. note::
+
+   - This is an active project and very much a work in progress, so I expect things to change often.
+   - The documents are raw, unedited, and weakly formatted. Please excuse any typos, etc. 
 
 Usage
 =====
@@ -68,6 +70,5 @@ Local Installation
 Documentation
 =============
 
-- `Motivation and Introduction <docs/posts/deMLopment.rst>`_
-- `Begin with the end in mind - Create an endpoint <docs/posts/endpoint.rst>`_
-- `Serve and run inference using Torchserve in a Docker container <docs/posts/serving_manage_monitor.rst>`_
+Build docs locally by running: `make html` (requires `Sphinx <https://www.sphinx-doc.org/>`_. The finished HTML will be located under `_build/docs/index.html`.
+

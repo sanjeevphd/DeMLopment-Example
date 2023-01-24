@@ -6,6 +6,11 @@ Create the Inference Endpoint
         In the end it doesn't even matter...
         - Linkin Park
 
+.. note::
+
+   - This is an active project and very much a work in progress, so I expect things to change often.
+   - The documents are raw, unedited, and weakly formatted. Please excuse any typos, etc. 
+
 Why Start at the End?
 =====================
 

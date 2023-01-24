@@ -2,17 +2,23 @@
 Introduction
 ############
 
+.. note::
+
+   - This is an active project and very much a work in progress, so I expect things to change often.
+   - The documents are raw, unedited, and weakly formatted. Please excuse any typos, etc. 
+
 What is this about?
 ===================
 
 A guide for ML projects with an emphasis on practices, workflows and tools to go from problem to solution.
 
-guide - a patterns-based approach to broadly apply ML to diverse problems/domains
-practices - an agile, test-driven development mindset that favors small steps, lazy development, fast iterations, working backwards, focussing on the product/consumer/user always.
-workflows - automate the boring stuff
-tools - an opinionated set of tools for the task. The right tool makes all the difference.
+- guide - a patterns-based approach to broadly apply ML to diverse problems/domains
+- practices - an agile, test-driven development mindset that favors small steps, lazy development, fast iterations, working backwards, focussing on the product/consumer/user always.
+- workflows - automate the boring stuff
+- tools - an opinionated set of tools for the task. The right tool makes all the difference.
 
 Having worked on the various stages of the ML development lifecycle I would often ponder about the big picture - the common patterns that persist across problems and what can be learned from them.
+
 My research on end-to-end ML led to many wonderful resources.
 
 While there are several great resources out there, I felt they are quite fragmented, which is fine, except it can be quite challenging to piece together a reliable solution, every time you apply ML to a new problem.
@@ -21,12 +27,13 @@ There are also several complete resources aka full-stack resources. These are gr
 I remember feeling overwhelmed by the steps, tools, grunt work, etc.
 My goal is to not overwhelm but to craftfully navigage the terrain that is changing ever so quickly.
 
-It's easy to see why it can be overwhelming or hard to bind everything together cause of the plethhora of topics/subjects that are being straddle under the umbrella of a ML project or production grade ML.
-Software development - programming, testing and debugging
-Software engineering - project scaffolding, version control, CI/CD, docs, automation
-Data science - data, viz.
-ML/DL - frameworks and libraries
-Theory - Linear algebra, Statistics, Theory of Random Numbers, Optimization,
+It's easy to see why it can be overwhelming or hard to bind everything together cause of the plethhora of topics/subjects that are being straddled under the umbrella of a ML project or production grade ML.
+
+- Software development - programming, testing and debugging
+- Software engineering - project scaffolding, version control, CI/CD, docs, automation
+- Data science - data, viz.
+- ML/DL - frameworks and libraries
+- Theory - Linear algebra, Statistics, Theory of Random Numbers, Optimization,
 
 This will be a series of posts that are hands-on.
 
